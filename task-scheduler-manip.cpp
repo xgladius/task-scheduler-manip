@@ -5,11 +5,11 @@ void task_scheduler::hook_vftable(const uintptr_t job, const uintptr_t hook_addr
     auto* new_vtable = reinterpret_cast<uintptr_t*>(malloc(size));
     const auto old_vtable = *reinterpret_cast<uintptr_t**>(job);
 
-    if (new_vtable != nullptr) {
-        memcpy(new_vtable, old_vtable, size);
-        new_vtable[offset / 4] = hook_addr;
-    }
+    if (new_vtable == nullptr)
+        return;
 
+    memcpy(new_vtable, old_vtable, size);
+    new_vtable[offset / 4] = hook_addr;
     DWORD old;
     VirtualProtect(reinterpret_cast<void*>(job), sizeof(job), PAGE_READWRITE, &old);
     *reinterpret_cast<uintptr_t**>(job) = &new_vtable[0];
