@@ -14,3 +14,15 @@ task_scheduler t;
 printf("Roblox lua state: %x\n", t.get_state());
 t.hook_script_job();
 ```
+
+
+To update:
+Replace
+```c
+inline auto get_task_scheduler = reinterpret_cast<get_task_scheduler_def>(0xEB3AD0 - 0x400000 + reinterpret_cast<uintptr_t>(GetModuleHandleA(nullptr)));
+```
+with the updated address, and replace
+```c
+const auto state = script_context + 164 + 56 * 0 - *reinterpret_cast<uintptr_t*>(script_context + 164 + 56 * 0); // state obfus
+```
+with the updated state offset
