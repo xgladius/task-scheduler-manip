@@ -26,3 +26,6 @@ with the updated address, and replace
 const auto state = script_context + 164 + 56 * 0 - *reinterpret_cast<uintptr_t*>(script_context + 164 + 56 * 0); // state obfus
 ```
 with the updated state offset
+
+
+***Written on purpose to be extensible for other jobs, just pass a lambda to the iterator***
