@@ -32,7 +32,7 @@ struct task_job {
 inline char script_job_hook()
 {
     // do script scheduling, whatever you want to do
-    printf("yes\n");
+    printf("RenderStepped/WaitingScriptsJob called\n");
     return 0;
 }
 
