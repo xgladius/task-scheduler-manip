@@ -42,3 +42,13 @@ void task_scheduler::hook_script_job()
             return {};
         });
 }
+
+void task_scheduler::print_jobs()
+{
+    iterate_jobs<int>(task_scheduler_, [](const uintptr_t job_index) -> std::optional<int>
+        {
+            const auto name = (*reinterpret_cast<std::string*>(*reinterpret_cast<uintptr_t*>(job_index) + 16));
+            printf("%s %x\n", name.c_str(), *reinterpret_cast<uintptr_t*>(job_index));
+            return{};
+        });
+}
