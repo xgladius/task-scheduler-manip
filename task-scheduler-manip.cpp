@@ -22,7 +22,7 @@ uintptr_t task_scheduler::get_state()
         {
             if (*reinterpret_cast<std::string*>(*reinterpret_cast<uintptr_t*>(job_index) + 16) == "WaitingScriptJob")
             {
-                return *reinterpret_cast<uintptr_t*>(*reinterpret_cast<uintptr_t*>(job_index) + 392); // return scriptcontext
+                return *reinterpret_cast<uintptr_t*>(*reinterpret_cast<uintptr_t*>(job_index) + 400); // return scriptcontext
             }
             return {};
         });
