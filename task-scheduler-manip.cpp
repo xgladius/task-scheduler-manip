@@ -26,7 +26,7 @@ uintptr_t task_scheduler::get_state()
             }
             return {};
         });
-    const auto state = script_context + 164 + 56 * 0 - *reinterpret_cast<uintptr_t*>(script_context + 164 + 56 * 0); // state obfus
+    const auto state = (script_context + 56 * 0 + 164) ^ *reinterpret_cast<uintptr_t*>(script_context + 56 * 0 + 164); // state obfus
     return state;
 }
 
