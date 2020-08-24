@@ -3,7 +3,7 @@
 #include <optional>
 
 typedef uintptr_t(__cdecl* get_task_scheduler_def)();
-inline auto get_task_scheduler = reinterpret_cast<get_task_scheduler_def>(0xEB3AD0 - 0x400000 + reinterpret_cast<uintptr_t>(GetModuleHandleA(nullptr)));
+inline auto get_task_scheduler = reinterpret_cast<get_task_scheduler_def>(0xEC2430 - 0x400000 + reinterpret_cast<uintptr_t>(GetModuleHandleA(nullptr)));
 
 /* not used in source, but included, if you want to expand the struct use ReClass */
 struct task_job {
