@@ -60,6 +60,8 @@ public:
     uintptr_t get_state();
 
     void hook_script_job();
+	
+    void print_jobs();
 
 private:
     uintptr_t task_scheduler_ = get_task_scheduler();
